@@ -40,7 +40,7 @@ GO
 CREATE TABLE dbo.Author   
 (
     ISBN_Id varchar(255) not NULL PRIMARY KEY,
-    Author_Name  varchar(255),
+    Author_Name  varchar(255) PRIMARY KEY,
     Author_Address varchar(255),
     Birth_Year INTEGER
 );
@@ -58,8 +58,8 @@ GO
 
 CREATE TABLE dbo.Publisher   
 (
-    ISBN_Id varchar(255) not NULL PRIMARY KEY,
-    Publisher_Name  varchar(255),
+    ISBN_Id varchar(255) not NULL,
+    Publisher_Name  varchar(255) PRIMARY KEY,
     Publisher_Address varchar(255),
     Phone INTEGER
 );
@@ -86,7 +86,7 @@ CREATE TABLE dbo.ShoppingBasket_Book
 GO
 
 insert into ShoppingBasket_Book values(1 , 12345, '1321@gmail.com', 20),
-(2, 123456, '123@gmial.com', 10)
+(2, 123456, '123@gmail.com', 10)
 
 SELECT e.ShoppingBasket_ID, e.ISBN_Id, e.Email, e.count
 FROM ShoppingBasket_Book as e
