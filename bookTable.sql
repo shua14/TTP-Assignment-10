@@ -33,9 +33,6 @@ CREATE TABLE Author
 insert into Author values( 12345, 'Tom', '123 address', 1890),
 (123456, 'Mike', '123 address', 1880)
 
-SELECT e.ISBN_Id, e.Author_Name, e.Author_Address, e.Birth_Year
-FROM Author as e
-
 DROP TABLE IF EXISTS PUblisher;
 
 CREATE TABLE Publisher   
@@ -51,8 +48,6 @@ CREATE TABLE Publisher
 insert into Publisher values( 12345, 'Nike', '123 address', 347000),
 (123456, 'Peter', '123 address', 18111)
 
-SELECT e.ISBN_Id, e.Publisher_Name, e.Publisher_Address, e.Phone
-FROM Publisher as e
 
 DROP TABLE IF EXISTS ShoppingBasket_Book;
 
@@ -67,9 +62,6 @@ CREATE TABLE ShoppingBasket_Book
 
 insert into ShoppingBasket_Book values(1 , 12345, '1321@gmail.com', 20),
 (2, 123456, '123@gmail.com', 10)
-
-SELECT e.ShoppingBasket_ID, e.ISBN_Id, e.Email, e.count
-FROM ShoppingBasket_Book as e
 
 --inner join three table 
 SELECT book.ISBN_Id, Author.Author_Name, Publisher.Publisher_Name
