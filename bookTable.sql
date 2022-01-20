@@ -1,10 +1,4 @@
--- Create a new database called 'DatabaseName'
-CREATE DATABASE postgres_book;
-
-
--- Create a new table called 'TableName' in schema 'SchemaName'
--- Drop the table if it already exists
-DROP TABLE IF EXISTS book;
+DROP TABLE IF EXISTS book CASCADE;
 
 -- Create the table in the specified schema
 CREATE TABLE book   
@@ -16,10 +10,11 @@ CREATE TABLE book
 );
 
 insert into book values( 12345, 2001, 'book1', 12),
-(123456, 2002, 'book2', 14)
+(123456, 2002, 'book2', 14);
 
 
-DROP TABLE IF EXISTS Author;
+DROP TABLE IF EXISTS Author CASCADE;
+
 
 CREATE TABLE Author   
 (
@@ -31,9 +26,10 @@ CREATE TABLE Author
 );
 
 insert into Author values( 12345, 'Tom', '123 address', 1890),
-(123456, 'Mike', '123 address', 1880)
+(123456, 'Mike', '123 address', 1880);
 
-DROP TABLE IF EXISTS PUblisher;
+DROP TABLE IF EXISTS Publisher CASCADE;
+
 
 CREATE TABLE Publisher   
 (
@@ -46,10 +42,11 @@ CREATE TABLE Publisher
 );
 
 insert into Publisher values( 12345, 'Nike', '123 address', 347000),
-(123456, 'Peter', '123 address', 18111)
+(123456, 'Peter', '123 address', 18111);
 
 
-DROP TABLE IF EXISTS ShoppingBasket_Book;
+DROP TABLE IF EXISTS ShoppingBasket_Book CASCADE;
+
 
 CREATE TABLE ShoppingBasket_Book  
 (   
@@ -61,7 +58,8 @@ CREATE TABLE ShoppingBasket_Book
 );
 
 insert into ShoppingBasket_Book values(1 , 12345, '1321@gmail.com', 20),
-(2, 123456, '123@gmail.com', 10)
+(2, 123456, '123@gmail.com', 10);
+
 
 --inner join three table 
 SELECT book.ISBN_Id, Author.Author_Name, Publisher.Publisher_Name
@@ -75,6 +73,3 @@ FROM (((book
 INNER JOIN Author ON book.ISBN_Id = Author.ISBN_Id)
 INNER JOIN Publisher ON book.ISBN_Id = Publisher.ISBN_Id)
 INNER JOIN ShoppingBasket_Book ON book.ISBN_Id = ShoppingBasket_Book.ISBN_Id);
-
-
-
